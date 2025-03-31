@@ -32,10 +32,10 @@ public class Pin : MonoBehaviour
 
 		
 		}
-		/*else if ( collision.CompareTag("Pin") )
+		else if ( collision.CompareTag("Pin") )
 		{
 			Debug.Log("GameOver");
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-		}*/
+		}
 	}
 }
