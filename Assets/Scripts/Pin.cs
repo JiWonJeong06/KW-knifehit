@@ -23,7 +23,7 @@ public class Pin : MonoBehaviour
 			movement2D.MoveTo(Vector3.zero);
 
 			transform.SetParent(collision.transform);
-			//collision.GetComponent<Target>().Hit();
+			collision.GetComponent<Target>().Hit();
 
 			//Instantiate(hitEffectPrefab, hitEffectSpawnPoint.position, hitEffectSpawnPoint.rotation);
 

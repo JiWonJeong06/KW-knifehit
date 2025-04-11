@@ -33,16 +33,15 @@ public class Target : MonoBehaviour
 
 	public void Hit()
 	{
-		StopCoroutine("OnHit");
-		StartCoroutine("OnHit");
+		StopCoroutine(OnHit());
+		StartCoroutine(OnHit());
 	}
 
 	private IEnumerator OnHit()
 	{
-		spriteRenderer.color = new Color(0.15f, 0.15f, 0.15f, 1);
+	
+		yield return new WaitForSeconds(1f);
 
-		yield return new WaitForSeconds(0.1f);
 
-		spriteRenderer.color = Color.black;
 	}
 }
