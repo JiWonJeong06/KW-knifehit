@@ -1,41 +1,60 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class Pin : MonoBehaviour
 {
-	[SerializeField]
-	private	Transform	hitEffectSpawnPoint;
-	[SerializeField]
-	private	GameObject	hitEffectPrefab;
+    [SerializeField]
+    private Transform hitEffectSpawnPoint;
+    [SerializeField]
+    private GameObject hitEffectPrefab;
 
-	private	Movement2D	movement2D;
+    private Movement2D movement2D;
 
-	private void Awake()
-	{
-		movement2D = GetComponent<Movement2D>();
-	}
+    public static  int CountPin = 0; // 모든 핀이 공유하는 정적 변수
 
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		if ( collision.CompareTag("Target") )
-		{
-			
-			movement2D.MoveTo(Vector3.zero);
+    public static int MaxPinCount = 8;
+	private bool isPaused = false;
 
-			transform.SetParent(collision.transform);
-			collision.GetComponent<Target>().Hit();
+    private void Awake()
+    
+    {
+        movement2D = GetComponent<Movement2D>();
+    }
 
-			//Instantiate(hitEffectPrefab, hitEffectSpawnPoint.position, hitEffectSpawnPoint.rotation);
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+		isPaused = !isPaused;
+        if (collision.CompareTag("Target"))
+        {
+            movement2D.MoveTo(Vector3.zero);
 
+            transform.SetParent(collision.transform);
+            collision.GetComponent<Target>().Hit();
 
-			//Camera.main.GetComponent<ShakeCamera>().Shake(0.1f, 1);
+            Instantiate(hitEffectPrefab, hitEffectSpawnPoint.position, hitEffectSpawnPoint.rotation);
 
+            CountPin++; // 핀이 타겟에 닿았으므로 카운트 증가
+
+            if (CountPin >= MaxPinCount)
+            {
+
+                CountPin = 0;
+				
+				SceneManager.LoadScene(0); // 빌드 세팅에서 0번 인덱스 씬
+
+            }
+	
 		
-		}
-		else if ( collision.CompareTag("Pin") )
-		{
-			Debug.Log("GameOver");
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-		}
-	}
+		
+
+
+        }
+        else if (collision.CompareTag("Pin"))
+        {
+            Debug.Log("GameOver");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            CountPin = 0; 
+        }
+    }
 }
