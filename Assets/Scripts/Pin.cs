@@ -13,7 +13,7 @@ public class Pin : MonoBehaviour
 
     public static  int CountPin = 0; // 모든 핀이 공유하는 정적 변수
 
-    public static int MaxPinCount = 8;
+    public static int MaxPinCount = 10;
 	private bool isPaused = false;
 
     private void Awake()
@@ -41,7 +41,6 @@ public class Pin : MonoBehaviour
 
                 CountPin = 0;
 				
-				SceneManager.LoadScene(0); // 빌드 세팅에서 0번 인덱스 씬
 
             }
 	
@@ -55,6 +54,8 @@ public class Pin : MonoBehaviour
             Debug.Log("GameOver");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             CountPin = 0; 
+            GameManager.gameoverui.SetActive(true);
+
         }
     }
 }
