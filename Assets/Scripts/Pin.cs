@@ -17,7 +17,7 @@ public class Pin : MonoBehaviour
 
     public float damage = 10f;
 
-    public float add_value = 10;
+    public float add_value = 10f;
 
     public float max_hp;
     private void Update()
@@ -49,8 +49,7 @@ public class Pin : MonoBehaviour
             Apple_Hp.Apple_Hp_Bar -= damage;
             print(Apple_Hp.Apple_Hp_Bar);
 
-            max_hp = 100 + add_value;
-            GameManager.max_hp = max_hp;
+
 
             if (Apple_Hp.Apple_Hp_Bar <= 0)
             {
