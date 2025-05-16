@@ -11,9 +11,9 @@ public class StageText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Pin.CountPin >= 10) {
-            GameManager.stagelevel += 1;
+       
+            
             stagetext.text = "Stage " + GameManager.stagelevel;
-        }
+        
     }
 }

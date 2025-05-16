@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,13 +12,16 @@ public class Pin : MonoBehaviour
 
     private Movement2D movement2D;
 
-    public static  int CountPin = 0; // 모든 핀이 공유하는 정적 변수
-
-    public static int MaxPinCount = 10;
+    public GameObject Apple_Spawner;
 	private bool isPaused = false;
 
-    private void Awake()
-    
+    public float damage = 10f;
+
+    public float add_value = 10;
+
+    public float max_hp;
+    private void Update()
+
     {
         movement2D = GetComponent<Movement2D>();
     }
@@ -25,7 +29,14 @@ public class Pin : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 		isPaused = !isPaused;
-        if (collision.CompareTag("Target"))
+        if (collision.CompareTag("Pin"))
+        {
+            Debug.Log("GameOver");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Apple_Hp.Apple_Hp_Bar = 100f;
+            GameManager.stagelevel = 1;
+        }
+        else if (collision.CompareTag("Target"))
         {
             movement2D.MoveTo(Vector3.zero);
 
@@ -34,27 +45,28 @@ public class Pin : MonoBehaviour
 
             Instantiate(hitEffectPrefab, hitEffectSpawnPoint.position, hitEffectSpawnPoint.rotation);
 
-            CountPin++; // 핀이 타겟에 닿았으므로 카운트 증가
+       
+            Apple_Hp.Apple_Hp_Bar -= damage;
+            print(Apple_Hp.Apple_Hp_Bar);
 
-            if (CountPin >= MaxPinCount)
+            max_hp = 100 + add_value;
+            GameManager.max_hp = max_hp;
+
+            if (Apple_Hp.Apple_Hp_Bar <= 0)
             {
+                print("Clear");
+                Destroy(collision.gameObject);
+                GameManager.stagelevel += 1;
 
-                CountPin = 0;
-				
-
+                Apple_Spawner.GetComponent<Apple_Spawner>().Apple_Spawn();
+                Apple_Hp.Apple_Hp_Bar = 100 + add_value;
+                max_hp = 100 + add_value;
+                GameManager.max_hp = max_hp;
             }
-	
-		
-		
 
 
-        }
-        else if (collision.CompareTag("Pin"))
-        {
-            Debug.Log("GameOver");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            CountPin = 0; 
-            GameManager.gameoverui.SetActive(true);
+
+
 
         }
     }

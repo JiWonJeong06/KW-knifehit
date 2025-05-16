@@ -5,9 +5,9 @@ public class Target : MonoBehaviour
 {
 	private	float			rotateSpeed = 100;
 	private	Vector3			rotateAngle = Vector3.forward;
-
+	
 	private	SpriteRenderer	spriteRenderer;
-
+	
 	private IEnumerator Start()
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
