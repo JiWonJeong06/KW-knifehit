@@ -6,14 +6,16 @@ public class StageText : MonoBehaviour
 
 {
     public Text stagetext;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameManager gameManager;
+    void Start() {
 
-    // Update is called once per frame
+   gameManager = gameManager.GetComponent<GameManager>();
+    }
     void Update()
     {
        
             
-            stagetext.text = "Stage " + GameManager.stagelevel;
+            stagetext.text = "Stage " + gameManager.GetComponent<GameManager>().stagelevel;
         
     }
 }

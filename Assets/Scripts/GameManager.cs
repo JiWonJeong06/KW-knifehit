@@ -3,20 +3,24 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
-    public static int stagelevel = 1;
+    public int stagelevel = 1;
 
     public static GameObject gameoverui;
 
     public Slider slider;
 
-    public static float max_hp = 100;
-
+    public GameObject Apple_Spawner;
+    public GameObject Pin_Spawner;
     void Update()
     {
 
-        slider.value = Apple_Hp.Apple_Hp_Bar / max_hp;
-        print("ㅁㄴㅇㅁ" + max_hp);
-        print(Apple_Hp.Apple_Hp_Bar);
+        slider.value = Apple_Spawner.GetComponent<Apple_Spawner>().Current_Hp / Apple_Spawner.GetComponent<Apple_Spawner>().Max_Hp;
+
+    }
+    public void GameOver()
+    {
+        stagelevel = 1;
+        Apple_Spawner.GetComponent<Apple_Spawner>().Max_Hp = 80;
     }
 
 

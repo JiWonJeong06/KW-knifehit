@@ -103,7 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2f63461637c2641b4e300477222296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Apple_Target: {fileID: 0}
 --- !u!50 &2240374450986428783
 Rigidbody2D:
   serializedVersion: 5
@@ -179,4 +178,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d73270a7b61b3f04eae873628adb0958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Apple_Hp_Bar_Bar: 0
+  Apple_Hp_Bar: 80

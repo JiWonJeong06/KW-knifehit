@@ -13,13 +13,15 @@ public class Pin : MonoBehaviour
     private Movement2D movement2D;
 
     public GameObject Apple_Spawner;
-	private bool isPaused = false;
+
+    public GameObject gameManager;
+
 
     public float damage = 10f;
 
     public float add_value = 10f;
 
-    public float max_hp;
+ 
     private void Update()
 
     {
@@ -28,13 +30,13 @@ public class Pin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-		isPaused = !isPaused;
+
         if (collision.CompareTag("Pin"))
         {
-            Debug.Log("GameOver");
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            Apple_Hp.Apple_Hp_Bar = 100f;
-            GameManager.stagelevel = 1;
+            gameManager.GetComponent<GameManager>().GameOver();
+
         }
         else if (collision.CompareTag("Target"))
         {
@@ -44,29 +46,7 @@ public class Pin : MonoBehaviour
             collision.GetComponent<Target>().Hit();
 
             Instantiate(hitEffectPrefab, hitEffectSpawnPoint.position, hitEffectSpawnPoint.rotation);
-
-       
-            Apple_Hp.Apple_Hp_Bar -= damage;
-            print(Apple_Hp.Apple_Hp_Bar);
-
-
-
-            if (Apple_Hp.Apple_Hp_Bar <= 0)
-            {
-                print("Clear");
-                Destroy(collision.gameObject);
-                GameManager.stagelevel += 1;
-
-                Apple_Spawner.GetComponent<Apple_Spawner>().Apple_Spawn();
-                Apple_Hp.Apple_Hp_Bar = 100 + add_value;
-                max_hp = 100 + add_value;
-                GameManager.max_hp = max_hp;
-            }
-
-
-
-
-
+            Apple_Spawner.GetComponent<Apple_Spawner>().Damage_Apple(damage);
         }
     }
 }

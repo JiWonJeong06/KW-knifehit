@@ -627,6 +627,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   apple_prefab: {fileID: 8384794304016311026, guid: 4092827c35b08ef4cbffeb1ef4f0eded, type: 3}
   apple_inst: {fileID: 0}
+  Max_Hp: 80
+  Current_Hp: 0
+  gameManager: {fileID: 1646992324}
 --- !u!1 &378222416
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,6 +791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stagetext: {fileID: 452005631}
+  gameManager: {fileID: 1646992325}
 --- !u!1 &466715384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,6 +1489,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pinPrefab: {fileID: 8895993989985317311, guid: 9292bd0713120e8449481b4618c9554d, type: 3}
   Apple_Spawner: {fileID: 299133697}
+  gameManager: {fileID: 1646992324}
+  inst_pin: {fileID: 0}
 --- !u!212 &1258108238
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1752,7 +1758,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c111aa2b7e309f34ab0353327389ce10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stagelevel: 1
   slider: {fileID: 1783243845}
+  Apple_Spawner: {fileID: 299133697}
+  Pin_Spawner: {fileID: 1258108235}
 --- !u!4 &1646992326
 Transform:
   m_ObjectHideFlags: 0
