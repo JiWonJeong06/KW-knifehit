@@ -18,7 +18,7 @@ public class Target : MonoBehaviour
 
 			yield return new WaitForSeconds(time);
 
-			int speed	= Random.Range(10, 300);
+			int speed	= Random.Range(100, 300);
 			int dir		= Random.Range(0, 2);
 
 			rotateSpeed	= speed;

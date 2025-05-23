@@ -152,7 +152,9 @@ MonoBehaviour:
   hitEffectSpawnPoint: {fileID: 5001298150830866701}
   hitEffectPrefab: {fileID: 2476042818033756531, guid: 7e631853d7e00db4981bc55c55e34b03, type: 3}
   Apple_Spawner: {fileID: 0}
+  gameManager: {fileID: 0}
   damage: 10
+  add_value: 10
 --- !u!50 &3946458354919003887
 Rigidbody2D:
   serializedVersion: 5
@@ -214,7 +216,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.021218166, y: 0.09099537}
+  m_Offset: {x: 0.02034302, y: 0.0944959}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -224,5 +226,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.21208927, y: 0.31888992}
+  m_Size: {x: 0.129825, y: 0.26288015}
   m_EdgeRadius: 0
