@@ -9,6 +9,13 @@ public class PinSpawner : MonoBehaviour
 	public GameObject gameManager;
 
 	public GameObject inst_pin;
+
+	public GameObject[] KnifeList;
+
+	public Sprite[] KnifeSprite;
+
+	public GameObject weaponEvolution;
+
 	private void Update()
 	{
 		if (Input.GetMouseButtonDown(0))
@@ -16,6 +23,8 @@ public class PinSpawner : MonoBehaviour
 			inst_pin = Instantiate(pinPrefab, transform.position, Quaternion.identity);
 			inst_pin.GetComponent<Pin>().Apple_Spawner = Apple_Spawner;
 			inst_pin.GetComponent<Pin>().gameManager = gameManager;
+			inst_pin.GetComponent<Pin>().weaponEvolution = weaponEvolution;
+			
 		}
 	}
 }

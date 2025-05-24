@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class WeaponEvolution : MonoBehaviour
@@ -81,13 +82,12 @@ public class WeaponEvolution : MonoBehaviour
         }
     }
 
-    void PrintCurrentWeapon()
+    public void PrintCurrentWeapon()
     {
         var weapon = weaponList[currentWeaponIndex];
         float attackPower = weapon.Levels[Mathf.Clamp(currentLevel - 1, 0, weapon.Levels.Count - 1)];
         Debug.Log($"무기: {weapon.Name}, 등급: {weapon.Rare}, 레벨: {currentLevel}, 공격력: {attackPower}, 경험치: {currentExp}/{expPerLevel}");
     }
-
     void LoadCSV()
     {
         TextAsset csvData = Resources.Load<TextAsset>("Data_Table_Knife");

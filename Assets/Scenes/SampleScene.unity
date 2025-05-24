@@ -1810,6 +1810,16 @@ MonoBehaviour:
   Apple_Spawner: {fileID: 299133697}
   gameManager: {fileID: 1646992324}
   inst_pin: {fileID: 0}
+  KnifeList:
+  - {fileID: 8895993989985317311, guid: 9292bd0713120e8449481b4618c9554d, type: 3}
+  - {fileID: 8895993989985317311, guid: 42822f10d31677f459b905e5a0c78d7e, type: 3}
+  - {fileID: 8895993989985317311, guid: 7e1b1b8cd8c39ca49ac17681acba7645, type: 3}
+  - {fileID: 8895993989985317311, guid: c63754c96286eff4b80602e9aa49400a, type: 3}
+  KnifeSprite:
+  - {fileID: -1304448827041223300, guid: 6cdfda4fb62d9f84e83a978e3a4482c6, type: 3}
+  - {fileID: 95255179978115413, guid: 6cdfda4fb62d9f84e83a978e3a4482c6, type: 3}
+  - {fileID: 1278249062, guid: 6cdfda4fb62d9f84e83a978e3a4482c6, type: 3}
+  - {fileID: -2080925769, guid: 6cdfda4fb62d9f84e83a978e3a4482c6, type: 3}
 --- !u!212 &1258108238
 SpriteRenderer:
   m_ObjectHideFlags: 0
