@@ -16,8 +16,10 @@ public class Pin : MonoBehaviour
 
     public GameObject gameManager;
 
+    public WeaponEvolution weaponEvolution;
 
-    public float damage = 10f;
+
+    public float damage = 0f;
 
     public float add_value = 10f;
 
@@ -38,6 +40,8 @@ public class Pin : MonoBehaviour
             gameManager.GetComponent<GameManager>().GameOver();
 
         }
+
+
         else if (collision.CompareTag("Target"))
         {
             movement2D.MoveTo(Vector3.zero);
@@ -47,6 +51,7 @@ public class Pin : MonoBehaviour
 
             Instantiate(hitEffectPrefab, hitEffectSpawnPoint.position, hitEffectSpawnPoint.rotation);
             Apple_Spawner.GetComponent<Apple_Spawner>().Damage_Apple(damage);
+            
         }
     }
 }

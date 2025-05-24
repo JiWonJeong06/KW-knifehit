@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 3946458354919003887}
   - component: {fileID: 8965246461435636985}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Epic
   m_TagString: Pin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0c9e3ac4a40e3e643b0948523b87d4cc, type: 3}
+  m_Sprite: {fileID: 1278249062, guid: 6cdfda4fb62d9f84e83a978e3a4482c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -153,7 +153,8 @@ MonoBehaviour:
   hitEffectPrefab: {fileID: 2476042818033756531, guid: 7e631853d7e00db4981bc55c55e34b03, type: 3}
   Apple_Spawner: {fileID: 0}
   gameManager: {fileID: 0}
-  damage: 10
+  weaponEvolution: {fileID: 0}
+  damage: 13
   add_value: 10
 --- !u!50 &3946458354919003887
 Rigidbody2D:
@@ -216,7 +217,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.02034302, y: 0.0944959}
+  m_Offset: {x: 0.00020420924, y: 0.09449589}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -226,5 +227,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.129825, y: 0.26288015}
+  m_Size: {x: 0.17010263, y: 0.26288015}
   m_EdgeRadius: 0
