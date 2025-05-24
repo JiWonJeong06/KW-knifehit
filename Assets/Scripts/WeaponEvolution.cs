@@ -43,7 +43,7 @@ public class WeaponEvolution : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            GainExp(15f);
+            GainExp(60f);
         }
 
        
@@ -97,6 +97,14 @@ public class WeaponEvolution : MonoBehaviour
         var weapon = weaponList[currentWeaponIndex];
         return weapon.Levels[Mathf.Clamp(currentLevel - 1, 0, weapon.Levels.Count - 1)];
     }
+
+    public string WeaponName()
+    {
+        var weapon = weaponList[currentWeaponIndex];
+        return weapon.Name;
+    }
+
+    
 
 
 
