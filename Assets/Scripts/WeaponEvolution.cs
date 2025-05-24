@@ -28,6 +28,8 @@ public class WeaponEvolution : MonoBehaviour
     public float currentExp = 0f;
     public float expPerLevel = 100f; // 예시: 레벨업에 100 경험치 필요
 
+   
+
 
 
     void Start()
@@ -38,11 +40,13 @@ public class WeaponEvolution : MonoBehaviour
 
     void Update()
     {
-        
+
         if (Input.GetMouseButtonDown(0))
         {
-            GainExp(15f); 
+            GainExp(15f);
         }
+
+       
     }
 
     public void GainExp(float amount)
@@ -65,7 +69,7 @@ public class WeaponEvolution : MonoBehaviour
         PrintCurrentWeapon();
     }
 
-    void EvolveWeapon()
+    public void EvolveWeapon()
     {
         if (currentWeaponIndex + 1 < weaponList.Count)
         {
@@ -88,6 +92,14 @@ public class WeaponEvolution : MonoBehaviour
         float attackPower = weapon.Levels[Mathf.Clamp(currentLevel - 1, 0, weapon.Levels.Count - 1)];
         Debug.Log($"무기: {weapon.Name}, 등급: {weapon.Rare}, 레벨: {currentLevel}, 공격력: {attackPower}, 경험치: {currentExp}/{expPerLevel}");
     }
+    public float Damage()
+    {
+        var weapon = weaponList[currentWeaponIndex];
+        return weapon.Levels[Mathf.Clamp(currentLevel - 1, 0, weapon.Levels.Count - 1)];
+    }
+
+
+
     void LoadCSV()
     {
         TextAsset csvData = Resources.Load<TextAsset>("Data_Table_Knife");

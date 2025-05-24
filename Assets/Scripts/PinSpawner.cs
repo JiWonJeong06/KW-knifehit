@@ -10,11 +10,13 @@ public class PinSpawner : MonoBehaviour
 
 	public GameObject inst_pin;
 
+	public GameObject weaponEvolution;
+
 	public GameObject[] KnifeList;
 
 	public Sprite[] KnifeSprite;
 
-	public GameObject weaponEvolution;
+
 
 	private void Update()
 	{
@@ -24,6 +26,7 @@ public class PinSpawner : MonoBehaviour
 			inst_pin.GetComponent<Pin>().Apple_Spawner = Apple_Spawner;
 			inst_pin.GetComponent<Pin>().gameManager = gameManager;
 			inst_pin.GetComponent<Pin>().weaponEvolution = weaponEvolution;
+	
 			
 		}
 	}

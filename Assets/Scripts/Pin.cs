@@ -25,11 +25,11 @@ public class Pin : MonoBehaviour
 
 
 
+
     private void Update()
 
     {
         movement2D = GetComponent<Movement2D>();
-  
 
     }
 
@@ -54,7 +54,7 @@ public class Pin : MonoBehaviour
 
             Instantiate(hitEffectPrefab, hitEffectSpawnPoint.position, hitEffectSpawnPoint.rotation);
         
-            Apple_Spawner.GetComponent<Apple_Spawner>().Damage_Apple(damage);
+            Apple_Spawner.GetComponent<Apple_Spawner>().Damage_Apple(weaponEvolution.GetComponent<WeaponEvolution>().Damage());
             
         }
     }

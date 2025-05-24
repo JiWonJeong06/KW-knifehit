@@ -30,7 +30,7 @@ public class Apple_Spawner : MonoBehaviour
         {
             Destroy(apple_inst);
             gameManager.GetComponent<GameManager>().stagelevel += 1;
-            Max_Hp += 5;
+            Max_Hp += 3.5f;
             Next_Round();
         }
     }
