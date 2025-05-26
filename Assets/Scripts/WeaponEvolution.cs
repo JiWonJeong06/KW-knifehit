@@ -28,7 +28,7 @@ public class WeaponEvolution : MonoBehaviour
     public float currentExp = 0f;
     public float expPerLevel = 100f; // 예시: 레벨업에 100 경험치 필요
 
-   
+
 
 
 
@@ -43,10 +43,10 @@ public class WeaponEvolution : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            GainExp(60f);
+            GainExp(10f);
         }
 
-       
+
     }
 
     public void GainExp(float amount)
@@ -57,6 +57,7 @@ public class WeaponEvolution : MonoBehaviour
         {
             currentExp -= expPerLevel;
             currentLevel++;
+            expPerLevel += 10f;
 
             Debug.Log($"레벨업! 현재 레벨: {currentLevel}");
 
@@ -76,12 +77,14 @@ public class WeaponEvolution : MonoBehaviour
             currentWeaponIndex++;
             currentLevel = 1;
             currentExp = 0;
+            
             Debug.Log($"무기 진화! 새로운 무기: {weaponList[currentWeaponIndex].Name}");
         }
         else
         {
             currentLevel = 10;
-            currentExp = 99;
+            currentExp = 0;
+            expPerLevel = 0f;
             Debug.Log("최종 무기입니다. 더 이상 진화할 수 없습니다.");
         }
     }
@@ -97,6 +100,15 @@ public class WeaponEvolution : MonoBehaviour
         var weapon = weaponList[currentWeaponIndex];
         return weapon.Levels[Mathf.Clamp(currentLevel - 1, 0, weapon.Levels.Count - 1)];
     }
+
+    public string RareText()
+    {
+        var weapon = weaponList[currentWeaponIndex];
+        return weapon.Rare;
+    }
+
+
+
 
     public string WeaponName()
     {
